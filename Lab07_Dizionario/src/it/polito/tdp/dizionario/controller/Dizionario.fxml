@@ -16,10 +16,10 @@
             <Text layoutX="34.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insierire una parola da cercare:" />
             <Text layoutX="213.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lab7_Dizionario" />
             <TextField fx:id="inputNumeroLettere" layoutX="260.0" layoutY="48.0" prefHeight="27.0" prefWidth="132.0" />
-            <TextField fx:id="inputParola" layoutX="260.0" layoutY="90.0" prefHeight="27.0" prefWidth="132.0" />
-            <Button fx:id="btnGeneraGrafo" layoutX="35.0" layoutY="137.0" mnemonicParsing="false" onAction="#doGeneraGrafo" prefHeight="27.0" prefWidth="106.0" text="Genera Grafo" />
-            <Button fx:id="btnTrovaVicini" layoutX="188.0" layoutY="137.0" mnemonicParsing="false" onAction="#doTrovaVicini" prefHeight="27.0" prefWidth="106.0" text="Trova vicini" />
-            <Button fx:id="btnTrovaGradoMax" layoutX="327.0" layoutY="137.0" mnemonicParsing="false" onAction="#doTrovaGradoMax" prefHeight="27.0" prefWidth="142.0" text="Trova grado max" />
+            <TextField fx:id="inputParola" disable="true" layoutX="260.0" layoutY="90.0" prefHeight="27.0" prefWidth="132.0" />
+            <Button fx:id="btnGeneraGrafo" layoutX="35.0" layoutY="137.0" mnemonicParsing="false" onAction="#doGeneraGrafo" prefHeight="31.0" prefWidth="110.0" text="Genera Grafo" />
+            <Button fx:id="btnTrovaVicini" disable="true" layoutX="188.0" layoutY="137.0" mnemonicParsing="false" onAction="#doTrovaVicini" prefHeight="27.0" prefWidth="106.0" text="Trova vicini" />
+            <Button fx:id="btnTrovaGradoMax" disable="true" layoutX="327.0" layoutY="137.0" mnemonicParsing="false" onAction="#doTrovaGradoMax" prefHeight="27.0" prefWidth="142.0" text="Trova grado max" />
             <Button layoutX="410.0" layoutY="352.0" mnemonicParsing="false" onAction="#doReset" text="Reset" />
          </children>
       </Pane>
