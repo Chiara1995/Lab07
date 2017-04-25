@@ -13,6 +13,9 @@ public class Model {
 	
 	private UndirectedGraph<String,DefaultEdge> grafo;
 
+	/*
+	 * Creazione grafo non orientato, semplice e non pesato
+	 */
 	public List<String> createGraph(int numeroLettere) {
 		
 		//Creo grafo non orientato
@@ -36,6 +39,9 @@ public class Model {
 		return vertici;
 	}
 
+	/*
+	 * Restituisce i vertici adiacenti a quello passato come parametro
+	 */
 	public List<String> displayNeighbours(String parolaInserita) {
 		
 		List<String> neighbours=new ArrayList<String>();
@@ -49,6 +55,9 @@ public class Model {
 		return neighbours;
 	}
 
+	/*
+	 * Ricerca del vertice con grado massimo 
+	 */
 	public String findMaxDegree() {
 		int maxDegree=0;
 		String vertex="";
@@ -62,6 +71,9 @@ public class Model {
 		return result;
 	}
 	
+	/*
+	 * Ricerca della parola (vertice del grafo) all'interno del dizionario  
+	 */
 	public boolean parolaPresente(String parola){
 		if(grafo.containsVertex(parola))
 			return true;
