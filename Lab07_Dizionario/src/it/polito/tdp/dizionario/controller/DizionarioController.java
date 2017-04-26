@@ -39,6 +39,8 @@ public class DizionarioController {
 		this.btnTrovaVicini.setDisable(true);
 		this.btnTrovaGradoMax.setDisable(true);
 		this.inputParola.setDisable(true);
+		this.inputNumeroLettere.setEditable(true);
+		this.btnGeneraGrafo.setDisable(false);
 		return;
 	}
 
@@ -62,6 +64,8 @@ public class DizionarioController {
 		this.btnTrovaVicini.setDisable(false);
 		this.btnTrovaGradoMax.setDisable(false);
 		this.inputParola.setDisable(false);
+		this.inputNumeroLettere.setEditable(false);
+		this.btnGeneraGrafo.setDisable(true);
 		return;
 	}
 
