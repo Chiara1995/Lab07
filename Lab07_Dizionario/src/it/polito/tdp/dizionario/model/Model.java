@@ -1,11 +1,13 @@
 package it.polito.tdp.dizionario.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
+import org.jgrapht.traverse.BreadthFirstIterator;
 
 import it.polito.tdp.dizionario.db.WordDAO;
 
@@ -79,6 +81,15 @@ public class Model {
 			return true;
 		else
 			return false;
+	}
+	
+	public List<String> trovaTuttiVicini(String parola){
+		List<String> ltemp=new LinkedList<String>();
+		BreadthFirstIterator<String, DefaultEdge> bfv=new BreadthFirstIterator<>(grafo, parola);
+		while(bfv.hasNext()){
+			ltemp.add(bfv.next());
+		}
+		return ltemp;
 	}
 	
 }

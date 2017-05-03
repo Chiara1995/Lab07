@@ -25,6 +25,8 @@ public class DizionarioController {
 	@FXML
 	private TextField inputParola;
 	@FXML
+    private Button btnTrovaTuttiVicini;
+	@FXML
 	private Button btnGeneraGrafo;
 	@FXML
 	private Button btnTrovaVicini;
@@ -41,6 +43,7 @@ public class DizionarioController {
 		this.inputParola.setDisable(true);
 		this.inputNumeroLettere.setEditable(true);
 		this.btnGeneraGrafo.setDisable(false);
+		this.btnTrovaTuttiVicini.setDisable(true);
 		return;
 	}
 
@@ -66,6 +69,7 @@ public class DizionarioController {
 		this.inputParola.setDisable(false);
 		this.inputNumeroLettere.setEditable(false);
 		this.btnGeneraGrafo.setDisable(true);
+		this.btnTrovaTuttiVicini.setDisable(false);
 		return;
 	}
 
@@ -118,6 +122,44 @@ public class DizionarioController {
 			txtResult.setText(re.getMessage());
 		}
 	}
+	
+	@FXML
+    void doTrovaTuttiVicini(ActionEvent event) {
+		int numeroLettere=Integer.parseInt(inputNumeroLettere.getText());
+		if(inputParola.getText().equals("") || !inputParola.getText().matches("[a-zA-Z]*")){
+			this.txtResult.setText("Inserire una parola.");
+			return;
+		}
+		String parola=inputParola.getText();
+		if(parola.length()!=numeroLettere){
+			this.txtResult.setText("Errore: parola con lunghezza diversa da quella specificata.");
+			return;
+		}
+		if(!model.parolaPresente(parola)){
+			this.txtResult.setText("Errore: parola non presente nel dizionario.");
+			return;
+		}
+	
+		try {
+			String result="[";
+			for(int i=0; i<model.trovaTuttiVicini(parola).size(); i++){
+				if(i==model.trovaTuttiVicini(parola).size()-1)
+					result+=model.trovaTuttiVicini(parola).get(i)+"]";
+				else
+					result+=model.trovaTuttiVicini(parola).get(i)+", ";
+			}
+			if(result.equals("[")){
+				txtResult.setText("Nessuna parola raggiungibile nel grafo a partire dal vertice selezionato.");
+				return;
+			}
+			else{
+				txtResult.setText("Parole raggiungibili nel grafo: "+result);
+				return;
+			}
+		} catch (RuntimeException re) {
+			txtResult.setText(re.getMessage());
+		}
+    }
 
 	@FXML
 	void initialize() {
