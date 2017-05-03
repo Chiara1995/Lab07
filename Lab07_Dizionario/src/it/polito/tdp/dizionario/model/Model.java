@@ -83,6 +83,11 @@ public class Model {
 			return false;
 	}
 	
+	/*
+	 * Ricerca di tutti i nodi raggiungibili nel grafo a partire dal vertice selezionato
+	 * Breadth First Visit (BFS)
+	 * libreria JGraphT
+	 */
 	public List<String> trovaTuttiVicini(String parola){
 		List<String> ltemp=new LinkedList<String>();
 		BreadthFirstIterator<String, DefaultEdge> bfv=new BreadthFirstIterator<>(grafo, parola);
