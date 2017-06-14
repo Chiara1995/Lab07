@@ -33,10 +33,13 @@ public class Model {
 
 		//Aggiungo archi
 		for(String s : grafo.vertexSet()){
+			//versione 1: utilizzo DB (ma lento!)
 			List<String> archi=new ArrayList<String>();
 			archi=wdao.getAllSimilarWords(s, numeroLettere);
 			for(int j=0; j<archi.size(); j++)
 				grafo.addEdge(s, archi.get(j));
+			
+			//versione 2: utilizzo algoritmo Java
 		}
 		return vertici;
 	}
@@ -96,5 +99,35 @@ public class Model {
 		}
 		return ltemp;
 	}
+
+	/*
+	 * VERSIONE ITERATIVA
+	public List<String> displayAllNeighboursIterative(String parolaInserita) {
+		// Creo due liste: quella dei nodi visitati ..
+		List<String> visited = new LinkedList<String>();
+		// .. e quella dei nodi da visitare
+		List<String> toBeVisited = new LinkedList<String>();
+		// Aggiungo alla lista dei vertici visitati il nodo di partenza.
+		visited.add(parolaInserita);
+		// Aggiungo ai vertici da visitare tutti i vertici collegati a quello inserito
+		toBeVisited.addAll(Graphs.neighborListOf(graph, parolaInserita));
+		while (!toBeVisited.isEmpty()) {
+			// Rimuovi il vertice in testa alla coda
+			String temp = toBeVisited.remove(0);
+			// Aggiungi il nodo alla lista di quelli visitati
+			visited.add(temp);
+			// Ottieni tutti i vicini di un nodo
+			List<String> listaDeiVicini = Graphs.neighborListOf(graph, temp);
+			// Rimuovi da questa lista tutti quelli che hai già visitato..
+			listaDeiVicini.removeAll(visited);
+			// .. e quelli che sai già che devi visitare.
+			listaDeiVicini.removeAll(toBeVisited);
+			// Aggiungi i rimanenenti alla coda di quelli che devi visitare.
+			toBeVisited.addAll(listaDeiVicini);
+		}
+		// Ritorna la lista di tutti i nodi raggiungibili
+		return visited;
+		}
+	 	*/
 	
 }

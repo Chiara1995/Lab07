@@ -17,6 +17,9 @@ public class TestModel {
 		
 		System.out.println("Cerco il vertice con grado massimo...");
 		System.out.println(model.findMaxDegree());
+		
+		System.out.print("Cerco componente connessa di casa");
+		System.out.println(model.trovaTuttiVicini("casa"));
 
 	}
 
